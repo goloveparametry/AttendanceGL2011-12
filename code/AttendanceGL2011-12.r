@@ -57,9 +57,9 @@ h + geom_bar(aes(fill=as.factor(rank))) + scale_fill_manual(
   values = c(rev(brewer.pal(9,"Greens"))[as.integer(levels(as.factor(gl.att [gl.att $home == gid, 5])))],"gray"), 
   name="League Pos") + geom_hline(aes(yintercept = b), hline.data[2,]) + geom_text(hjust=1.1, size=4, angle = 90) + scale_x_discrete("League Round") + scale_y_continuous("Attendance") + opts(title=paste("Attendance of ",gid," home matches GL 2011/12",sep=""))
 
-# Visualize Banik Ostrava
-gid = "Baník Ostrava"
+# Visualize Other team
+gid = "Dukla Praha"
 i <- ggplot( subset(gl.att , home == gid), aes(rnd,att,label=vis) ) 
 i + geom_bar(aes(fill=as.factor(rank))) + scale_fill_manual(
-  values = c(rev(brewer.pal(9,"Greens"))[as.integer(levels(as.factor(gl.att [gl.att $home == gid, 5])))-(max(as.integer(levels(as.factor(gl.att [gl.att $home == gid, 5]))))-9)],"gray"), 
+  values = c(rev(brewer.pal(length(levels(as.factor(gl.att [gl.att $home == gid, 5]))),"Greens")),"gray"), 
   name="League Pos") + geom_text(hjust=1.1, size=4, angle = 90) + scale_x_discrete("League Round") + scale_y_continuous("Attendance") + opts(title=paste("Attendance of ",gid," home matches GL 2011/12",sep=""))
